@@ -55,9 +55,9 @@
     	request.onload = function() {
 
         	var data = JSON.parse(request.responseText);
-			meal_items = data.filter(getMeal)   // filter data for selected meal
+			major_items = data.filter(getMajor)   // filter data for selected major
 		
-			function getMeal(item) {
+			function getMajor(item) {
             	return item.major == selected_major;
         	}
 
@@ -65,7 +65,7 @@
               	var templateText = document.getElementById('tableTemplate').innerHTML;
              	var compiledTemplateText = Handlebars.compile(templateText);   // get and compile template code
               	
-              	compiledHtml = compiledTemplateText({ rows: meal_items })      // apply data to template
+              	compiledHtml = compiledTemplateText({ rows: major_items })      // apply data to template
               	document.getElementById('selectedMajor').innerHTML = compiledHtml; 	
        	 	}
         	else {
