@@ -7,7 +7,7 @@
 </head>
 
 
-<body ng-app = "AdviseesApp">
+<body ng-app = "adviseesApp">
 
 
 
@@ -33,7 +33,7 @@
              <th>sid</th> <th>last name</th> <th>first name</th> <th>credit hrs</th> <th>gpa points</th> <th>major</th> 
            </tr>
   
-           <tr ng-repeat = "students | filter:search_text">  <!-- filter by search textbox value -->
+           <tr ng-repeat = "student in students | filter:search_text">  <!-- filter by search textbox value -->
                <td>{{student.id}}</td>
                <td>{{student.last_name}}</td>
                <td>{{student.first_name}}</td>
@@ -42,11 +42,11 @@
              <td>{{student.major}}</td>
            </tr>
        </table>
-     </div>   <!-- end carsApp -->
+     </div>   <!-- end adviseesApp -->
   </div>   <!-- end class= 'container' -->
 
   <script>
-      var app = angular.module('AdviseesApp', []);
+      var app = angular.module('adviseesApp', []);
       app.controller('allCtrl', function($scope, $http) {
   
           $http.get("students.json")          // get all the student data
